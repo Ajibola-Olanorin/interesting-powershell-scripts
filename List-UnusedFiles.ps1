@@ -1,4 +1,28 @@
-﻿param([string]$DirTree = "C:\Users\HP Probook 440\Downloads", [int]$Days = 100)
+﻿<#
+.SYNOPSIS
+	Lists unused files in a directory tree
+
+.DESCRIPTION
+	This PowerShell script scans and lists files in a folder with last access time older than number of days.
+
+.PARAMETER DirTree
+	Specifies the path to the directory tree
+
+.PARAMETER Days
+	Specifies the number of days
+
+.EXAMPLE
+	PS> ./list-unused-files C:\ 100
+
+.LINK
+	https://github.com/ajibola-olanorin/interesting-powershell-scripts
+
+.NOTES
+	Author: Ajibola Olanorin
+#>
+
+
+param([string]$DirTree = "C:\Users\ComputerName\Downloads", [int]$Days = 100)
 
 write-host "Listing files in $DirTree with last access time older than $Days days"
 
@@ -12,4 +36,3 @@ try {
 	"⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
 	exit 1
 }
-
